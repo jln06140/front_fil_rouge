@@ -17,7 +17,7 @@ export class AgentViewComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   agents: Agent[];
-  displayedColumns = ['id', 'nom', 'prenom', 'email', 'status', 'edit', 'delete'];
+  displayedColumns = ['nom', 'prenom', 'email', 'status', 'edit', 'delete'];
   dataSource = new MatTableDataSource();
 
   applyFilter(filterValue: string) {

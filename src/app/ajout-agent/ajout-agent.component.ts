@@ -45,6 +45,7 @@ export class AjoutAgentComponent implements OnInit {
    }
 
    onChange() {
+     console.log('coco : ' + this.agentForm.value['profil']);
     this.profilService.getProfil(this.agentForm.value['profil']).subscribe( pro => this.profilSelected = pro
       , err => this.errText = 'la requete a echoué' );
    }
