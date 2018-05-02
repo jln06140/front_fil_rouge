@@ -9,7 +9,7 @@ Une fois ce dernier installé, ouvrir un terminal de commande et rentrer :
 "npm install -g @angular/cli"
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-##Installation
+## Installation
 
 Ouvrir Git bash 
 
@@ -17,9 +17,15 @@ lancer la commande suivante pour lconer le projet dans le dossier cible : git cl
 
 Ouvrir un client de commande de ligne à la racine du répertoire.
 
-Taper `npm install` afin d'installer les dépendances
+**Installation dependances**
+```
+npm install
+```
 
-`ng serve` pour lancer le serveur
+**Lancement serveur**
+```
+ng serve
+```
 
 
 Ouvrir un navigateur à l'adresse `http://localhost:4200/` pour accéder à l'applciation.
