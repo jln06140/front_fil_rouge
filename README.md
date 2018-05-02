@@ -1,29 +1,29 @@
 # MIST
 
-Ce projet a été realisé en equipe, il a pour but de servir a gerer tout ce qui est lié a une affaire poli
+Ce projet a été realisé en equipe, il a pour but de servir a gerer tout ce qui est lié a une affaire policiere
 
 ## prerequis
 
 Installer NodeJs : https://nodejs.org/en/
-Une fois ce dernier installé, ouvrir un terminal de commande et rentrer : "npm install -g @angular/cli"
+Une fois ce dernier installé, ouvrir un terminal de commande et rentrer : 
+"npm install -g @angular/cli"
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+##Installation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Ouvrir Git bash 
 
-## Build
+lancer la commande suivante pour lconer le projet dans le dossier cible : git clone https://github.com/jln06140/front_fil_rouge.git
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Ouvrir un client de commande de ligne à la racine du répertoire.
 
-## Running unit tests
+Taper `npm install` afin d'installer les dépendances
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+`ng serve` pour lancer le serveur
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Ouvrir un navigateur à l'adresse `http://localhost:4200/` pour accéder à l'applciation.
 
-## Further help
+##Contribution personnelle
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Tout ce qui est lié a l'agent,au profil et aux suspects ainsi que la securisation des routes (mis en commentaire pour l'instant)

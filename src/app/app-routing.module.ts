@@ -6,9 +6,7 @@ import { AffichageRechercheComponent } from './affichage-recherche/affichage-rec
 import { NavComponent } from './nav/nav.component';
 import { IndexComponent } from './index/index.component';
 import { ProfilComponent } from './profil/profil.component';
-import { GestionDroitsComponent } from './gestion-droits/gestion-droits.component';
 import { HotlistComponent } from './hotlist/hotlist.component';
-import { GestionAffaireComponent } from './gestion-affaire/gestion-affaire.component';
 import { SuspectFormComponent } from './suspect-form/suspect-form.component';
 import { ArmeFormComponent } from './arme-form/arme-form.component';
 import { VehiculeFormComponent } from './vehicule-form/vehicule-form.component';
@@ -30,6 +28,9 @@ import { AjoutArmeComponent } from './ajout-arme/ajout-arme.component';
 import { ListeArmesComponent } from './liste-armes/liste-armes.component';
 import { ListeAffairesComponent } from './liste-affaires/liste-affaires.component';
 import { AjoutAffaireComponent } from './ajout-affaire/ajout-affaire.component';
+import { AjoutVehiculeComponent } from './ajout-vehicule/ajout-vehicule.component';
+import { ListeVehiculesComponent } from './liste-vehicules/liste-vehicules.component';
+import { ModifierVehiculeComponent } from './modifier-vehicule/modifier-vehicule.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/auth', pathMatch: 'full' },
@@ -67,15 +68,16 @@ const routes: Routes = [
           { path: 'listeArmes', component: ListeArmesComponent },
           { path: 'ajoutAffaire', component: AjoutAffaireComponent },
           { path: 'listeAffaires', component: ListeAffairesComponent },
+          { path: 'ajoutVehicule', component: AjoutVehiculeComponent },
+          { path: 'listeVehicules', component: ListeVehiculesComponent },
+          { path: 'listeVehicules/:id', component: ModifierVehiculeComponent },
           { path: 'suspects', component: SuspectViewComponent }
         ]
       },
 
       { path: 'gestion-droits', component: AgentViewComponent },
 
-      { path: 'gestion-affaire', component: GestionAffaireComponent },
-
-      {
+       {
         path: 'hotlist',
         /*canActivate: [AuthGuardService],*/ component: HotlistComponent
       },

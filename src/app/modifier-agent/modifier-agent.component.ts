@@ -21,6 +21,7 @@ export class ModifierAgentComponent implements OnInit {
   formulaire: NgForm;
   erreur = false;
   majAgent;
+  isReadOnly = false;
 
   constructor(private profilService: ProfilServiceService, private route: ActivatedRoute,
      private router: Router, private agentService: AgentService) { }
@@ -66,6 +67,10 @@ export class ModifierAgentComponent implements OnInit {
     this.profilService.getProfil(profil).subscribe( 
       pro => this.profilSelected = pro
       , err => this.errText = 'la requete a echoué' );
+   }
+
+   lecture(){
+     this.isReadOnly = !this.isReadOnly ? true : false;
    }
 
 

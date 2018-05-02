@@ -62,6 +62,7 @@ export class AgentService {
     return this.http.put(url, agent, httpOptions);
   }
 
+
   emitAgentSubject() {
     this.agentsSusbject.next(this.agents.slice());
   }

@@ -12,9 +12,9 @@ import { AffichageRechercheComponent } from './affichage-recherche/affichage-rec
 import { IndexComponent } from './index/index.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { ProfilComponent } from './profil/profil.component';
-import { GestionDroitsComponent } from './gestion-droits/gestion-droits.component';
+
 import { HotlistComponent } from './hotlist/hotlist.component';
-import { GestionAffaireComponent } from './gestion-affaire/gestion-affaire.component';
+
 import { SuspectFormComponent } from './suspect-form/suspect-form.component';
 import { ArmeFormComponent } from './arme-form/arme-form.component';
 import { VehiculeFormComponent } from './vehicule-form/vehicule-form.component';
@@ -50,6 +50,10 @@ import { AjoutArmeComponent } from './ajout-arme/ajout-arme.component';
 import { AjoutAffaireComponent } from './ajout-affaire/ajout-affaire.component';
 import { AffairesService } from './affaires.service';
 import { ArmesService } from './armes.service';
+import { VehiculesService } from './vehicule.service';
+import { AjoutVehiculeComponent } from './ajout-vehicule/ajout-vehicule.component';
+import { ListeVehiculesComponent } from './liste-vehicules/liste-vehicules.component';
+import { ModifierVehiculeComponent } from './modifier-vehicule/modifier-vehicule.component';
 
 @NgModule({
   declarations: [
@@ -59,9 +63,7 @@ import { ArmesService } from './armes.service';
     AffichageRechercheComponent,
     IndexComponent,
     ProfilComponent,
-    GestionDroitsComponent,
     HotlistComponent,
-    GestionAffaireComponent,
     SuspectFormComponent,
     ArmeFormComponent,
     VehiculeFormComponent,
@@ -81,6 +83,9 @@ import { ArmesService } from './armes.service';
     ListeArmesComponent,
     AjoutArmeComponent,
     AjoutAffaireComponent,
+    AjoutVehiculeComponent,
+    ListeVehiculesComponent,
+    ModifierVehiculeComponent
     ],
 
   imports: [
@@ -109,7 +114,7 @@ import { ArmesService } from './armes.service';
   exports: [CommonModule, MatToolbarModule, MatInputModule, MatTableModule],
 
   providers: [AgentService, ProfilServiceService, AuthService, AuthGuardService,
-  SuspectService, AffairesService, ArmesService],
+  SuspectService, AffairesService, ArmesService, VehiculesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -31,6 +31,15 @@
   <button mat-menu-item routerLink="ajoutAffaire">ajouts affaires</button>
 </mat-menu>
 
+<mat-menu #appMenu5="matMenu">
+  <button mat-menu-item routerLink="listeVehicules">liste des véhicules</button>
+  <button mat-menu-item routerLink="ajoutVehicule">ajout véhicule</button>
+</mat-menu>
+
+<button mat-icon-button [matMenuTriggerFor]="appMenu5">
+  Véhicules
+</button>
+
 <button mat-icon-button [matMenuTriggerFor]="appMenu4">
   Affaires
 </button>

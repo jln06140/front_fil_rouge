@@ -20,6 +20,8 @@ export class AjoutAgentComponent implements OnInit {
   errText: string;
   agentForm: FormGroup;
   profilSelected: Profil;
+  erreur: boolean;
+  messageErreur: String;
 
   // tslint:disable-next-line:max-line-length
   constructor(private formBuilder: FormBuilder, private profilService: ProfilServiceService, private agentService: AgentService, private router: Router) {
@@ -39,7 +41,8 @@ export class AjoutAgentComponent implements OnInit {
     );
     console.log(newAgent);
     this.agentService.createAgent(newAgent).subscribe(
-      () => this.router.navigateByUrl('/index/gestion/agents')
+      () => this.router.navigateByUrl('/index/gestion/agents'),
+      err => console.log(err)
    // this.router.navigate(['agents']);
     );
    }
@@ -49,8 +52,6 @@ export class AjoutAgentComponent implements OnInit {
     this.profilService.getProfil(this.agentForm.value['profil']).subscribe( pro => this.profilSelected = pro
       , err => this.errText = 'la requete a echoué' );
    }
-
-
 
   ngOnInit() {
     this.initForm();
