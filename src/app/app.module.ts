@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatTableModule, MatToolbarModule, MatPaginator, MatPaginatorModule, MatMenuModule, MatIconModule } from '@angular/material';
+import { MatTableModule, MatToolbarModule, MatPaginator, MatPaginatorModule, MatMenuModule, MatIconModule, MatSnackBarModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -108,7 +108,8 @@ import { ModifierVehiculeComponent } from './modifier-vehicule/modifier-vehicule
     CommonModule,
     MatPaginatorModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    MatSnackBarModule
 
   ],
   exports: [CommonModule, MatToolbarModule, MatInputModule, MatTableModule],

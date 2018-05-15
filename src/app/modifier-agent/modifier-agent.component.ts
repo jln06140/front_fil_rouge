@@ -49,7 +49,6 @@ export class ModifierAgentComponent implements OnInit {
     const mdp = form.value['password'];
     const profil = form.value['profil'];
     this.profilSelected = new Profil(profil);
-    console.log(profil);
     // this.recupereObjetProfil(profil);
     // console.log('le profil est' + JSON.stringify(this.profilSelected));
     this.majAgent = new Agent(nom, prenom, adresse, ville, email, mdp, this.profilSelected);

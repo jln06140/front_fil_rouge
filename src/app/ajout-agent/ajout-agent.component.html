@@ -1,57 +1,70 @@
-<div class="erreur" > {{ messageErreur }} </div>
+<div class="erreur"> {{ messageErreur }} </div>
 <div class="col-sm-8 col-sm-offset-2">
-<form (ngSubmit)="onSubmit()" [formGroup]="agentForm">
-  <div class="row">
-  <div class="information col-md-5">
-    <div class="form-group">
-      <label for="nom">Nom</label>
-      <input type="text" class="form-control" id="nom" formControlName="nom">
-    </div>
-    <div class="form-group">
-      <div class="form-group">
-        <label for="prenom">Prenom</label>
-        <input type="text" class="form-control" id="prenom" formControlName="prenom">
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="form-group">
-        <label for="adresse">Adresse</label>
-        <input type="text" class="form-control" id="adresse" formControlName="adresse">
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="form-group">
-        <label for="ville">Ville</label>
-        <input type="text" class="form-control" id="ville" formControlName="ville">
-      </div>
-    </div>
-  </div>
-  <div class="user col-md-5 offset-md-1">
-      <div class="form-group">
-          <div class="form-group">
-            <label for="ville">Email</label>
-            <input type="email" class="form-control" id="email" formControlName="email">
+  <form (ngSubmit)="onSubmit()" [formGroup]="agentForm">
+    <div class="row">
+      <div class="information col-md-5">
+        <div class="form-group">
+          <label for="nom">Nom</label>
+          <input type="text" class="form-control" id="nom" formControlName="nom" required>
+          <div *ngIf="agentForm.controls['nom'].invalid && (agentForm.controls['nom'].dirty || agentForm.controls['nom'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="agentForm.controls['nom'].errors.required">
+              Le nom est requis
+            </div>
           </div>
         </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" id="password" class="form-control" formControlName="mdp">
+        <div class="form-group">
+          <label for="prenom">Prenom</label>
+          <input type="text" class="form-control" id="prenom" formControlName="prenom" required>
+          <div *ngIf="agentForm.controls['prenom'].invalid && (agentForm.controls['prenom'].dirty || agentForm.controls['prenom'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="agentForm.controls['prenom'].errors.required">
+              Le prenom est requis
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="adresse">Adresse</label>
+          <input type="text" class="form-control" id="adresse" formControlName="adresse">
+
+        </div>
+        <div class="form-group">
+          <label for="ville">Ville</label>
+          <input type="text" class="form-control" id="ville" formControlName="ville">
+        </div>
+      </div>
+
+      <div class="user col-md-5 offset-md-1">
+        <div class="form-group">
+          <label for="ville">Email</label>
+          <input type="email" class="form-control" id="email" formControlName="email" required>
+          <div *ngIf="agentForm.controls['email'].invalid && (agentForm.controls['email'].dirty || agentForm.controls['email'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="agentForm.controls['email'].errors.email">
+              format email invalid
+            </div>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" class="form-control" formControlName="mdp" required>
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" class="form-control" id="confirmPassword" formControlName="confMdp" required>
+        </div>
+        <div class="form-group">
+          <label for="profil">Profil</label>
+          <select class="form-control" id="profil" formControlName="profil" (change)="onChange()">
+            <option value="Admin">Admin</option>
+            <option value="Utilisateur" selected>Utilisateur</option>
+          </select>
+        </div>
+      </div>
+
+
     </div>
-    <div class="form-group">
-      <label for="confirmPassword">Confirm Password</label>
-      <input type="password" class="form-control" id="confirmPassword" formControlName="confMdp">
-    </div>
-    <div class="form-group">
-      <label for="profil">Profil</label>
-      <select class="form-control" id="profil" formControlName="profil" (change)="onChange()">
-        <option>Admin</option>
-        <option>Utilisateur</option>
-      </select>
-    </div>
-   
-  </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Envoyer</button>
-  <a class="btn btn-default" routerLink = "../">Retour a la liste</a>
-</form>
+    <button type="submit" [disabled]="agentForm.invalid" class="btn btn-primary">Envoyer</button>
+    <a class="btn btn-default" routerLink="/index/gestion/agents">Retour a la liste</a>
+  </form>
 </div>

@@ -5,6 +5,7 @@ import { ProfilServiceService } from '../profil-service.service';
 import { Agent } from '../agent';
 import { AgentService } from '../agent.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 
 
@@ -16,7 +17,7 @@ import { Router } from '@angular/router';
 export class AjoutAgentComponent implements OnInit {
 
 
-  snackBar: any;
+ 
   errText: string;
   agentForm: FormGroup;
   profilSelected: Profil;
@@ -24,12 +25,15 @@ export class AjoutAgentComponent implements OnInit {
   messageErreur: String;
 
   // tslint:disable-next-line:max-line-length
-  constructor(private formBuilder: FormBuilder, private profilService: ProfilServiceService, private agentService: AgentService, private router: Router) {
+  constructor(private formBuilder: FormBuilder,
+               private profilService: ProfilServiceService,
+               private agentService: AgentService, 
+               public snackBar: MatSnackBar,
+               private router: Router) {
    }
 
    onSubmit() {
     const formValue = this.agentForm.value;
-    console.log(this.profilSelected);
     const newAgent = new Agent(
       formValue['nom'],
       formValue['prenom'],
@@ -41,8 +45,12 @@ export class AjoutAgentComponent implements OnInit {
     );
     console.log(newAgent);
     this.agentService.createAgent(newAgent).subscribe(
-      () => this.router.navigateByUrl('/index/gestion/agents'),
-      err => console.log(err)
+      () => {
+        this.openSnackBar('Agent crée','succes'),
+        this.router.navigateByUrl('/index/gestion/agents');
+
+      },
+      err => { console.log('coucou ' + JSON.stringify(err.error.message); this.openSnackBar('Error',err.error.message);}
    // this.router.navigate(['agents']);
     );
    }
@@ -60,16 +68,21 @@ export class AjoutAgentComponent implements OnInit {
 
   initForm() {
     this.agentForm = this.formBuilder.group({
-      nom: '',
-      prenom: '',
+      nom: ['', Validators.required],
+      prenom: ['', Validators.required],
       adresse: '',
       ville: '',
       email: ['', [Validators.required, Validators.email]],
-      mdp: '',
-      confMdp: '',
+      mdp: ['', Validators.required],
+      confMdp: ['', Validators.required],
       profil: ''
 
     });
   }
 
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
 }
